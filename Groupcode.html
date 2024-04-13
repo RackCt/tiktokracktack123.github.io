@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group Code - Empire Fakes</title>
+<style>
+  body, html {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    height: 100%;
+  }
+  nav {
+    background-color: #98FF98;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+  }
+  nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  nav a:hover {
+    color: red;
+  }
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+  }
+  .payment-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: center;
+    flex-wrap: wrap; /* Added to allow items to wrap on smaller screens */
+  }
+  .payment-option {
+    border: 2px solid #98FF98;
+    padding: 10px;
+    width: 45%;
+    position: relative;
+    margin-bottom: 20px; /* Added to create space between payment options */
+  }
+  .payment-title {
+    color: green;
+    font-weight: bold;
+  }
+  img {
+    max-width: 100px;
+    margin: 10px auto; /* Center the image */
+    display: block; /* Make sure the image is centered */
+  }
+  button {
+    margin-top: 10px;
+    background-color: #98FF98;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  .center-button {
+    display: block;
+    width: 30%;
+    margin: 20px auto;
+  }
+  .overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  .popup {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 90%;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .popup {
+      max-width: 25%; /* 50% less than the original width */
+    }
+  }
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block;
+    }
+    .nav-links {
+      display: none;
+      position: absolute;
+      background-color: #98FF98;
+      width: 100%;
+      top: 40px;
+      left: 0;
+      flex-direction: column;
+      padding: 10px 0;
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .payment-container {
+      flex-direction: column;
+    }
+    .payment-option {
+      width: 100%; /* Adjusted width to fit smaller screens */
+      margin-bottom: 10px; /* Reduced margin between payment options */
+      margin-left: -11px; /* Move container 12 pixels to the left */
+    }
+    .center-button {
+      width: 50%;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <span class="menu-icon" onclick="toggleNav()">☰</span>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="order.html">Order</a>
+      <a href="exampleid.html">Example IDs</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="payment-container">
+    <div class="payment-option">
+      <h3>Bitcoin</h3>
+      <h3 class="payment-title">$75</h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/2048px-Bitcoin.svg.png" alt="Bitcoin Logo">
+      <button onclick="openBitcoinPopup()">Pay</button>
+    </div>
+    <div class="payment-option">
+      <h3>Cash App</h3>
+      <h3 class="payment-title">$75</h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Square_Cash_app_logo.svg" alt="Cash App Logo">
+      <button onclick="openCashAppPopup()">Pay</button>
+    </div>
+  </div>
+
+  <p style="text-align:center;">You are in group: GKLPZ</p>
+  
+  <button class="center-button" id="confirmPaymentButton" disabled>Confirm Payment</button>
+
+  <div class="overlay" id="bitcoinPopupOverlay">
+    <div class="popup" id="bitcoinPopupContent">
+      <!-- Bitcoin payment popup content will be loaded here -->
+    </div>
+  </div>
+
+  <div class="overlay" id="cashAppPopupOverlay">
+    <div class="popup" id="cashAppPopupContent">
+      <!-- Cash App payment popup content will be loaded here -->
+    </div>
+  </div>
+
+<script>
+  function toggleNav() {
+    var links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function openBitcoinPopup() {
+    const overlay = document.getElementById('bitcoinPopupOverlay');
+    const content = document.getElementById('bitcoinPopupContent');
+    overlay.style.display = 'flex';
+    content.innerHTML = `
+      <h3 class="payment-title" style="color:green; font-weight:bold;">Pay $75 to this Address:</h3>
+      <img src="https://gcdnb.pbrd.co/images/PmVEyEfbVCZR.png?o=1" alt="Bitcoin Address QR Code" style="max-width: 100%; margin: 10px auto;">
+      <p style="text-align: center;">Wallet:</p>
+      <p style="text-align: center;">bc1qathgnhv7nlk6tfmqky5aktqlvckhpavvewd3gs</p>
+      <button onclick="confirmBitcoinPayment()" id="confirmBitcoinButton" disabled>Confirm Payment</button>
+      <button onclick="closeBitcoinPopup()">Close</button>
+    `;
+    // Disable the confirm payment button for 1 minute
+    setTimeout(() => {
+      document.getElementById('confirmBitcoinButton').disabled = false;
+    }, 60000); // 60000 milliseconds = 1 minute
+  }
+
+  function openCashAppPopup() {
+    const overlay = document.getElementById('cashAppPopupOverlay');
+    const content = document.getElementById('cashAppPopupContent');
+    overlay.style.display = 'flex';
+    content.innerHTML = `
+      <h3 class="payment-title" style="color:green; font-weight:bold;">Pay $75 to this CashTag:</h3>
+      <img src="https://i2.paste.pics/faf4b23403be9868482f0817eaf0dbf5.png?rand=IwltSYFpJv" alt="Cash App QR Code" style="max-width: 40%; margin: 10px auto;">
+      <p style="text-align: center;">CashTag:</p>
+      <p style="text-align: center;">$PurchaseH4L</p>
+      <button onclick="confirmCashAppPayment()" id="confirmCashAppButton" disabled>Confirm Payment</button>
+      <button onclick="closeCashAppPopup()">Close</button>
+    `;
+    // Disable the confirm payment button for 1 minute
+    setTimeout(() => {
+      document.getElementById('confirmCashAppButton').disabled = false;
+    }, 60000); // 60000 milliseconds = 1 minute
+  }
+
+  function closeBitcoinPopup() {
+    document.getElementById('bitcoinPopupOverlay').style.display = 'none';
+  }
+
+  function closeCashAppPopup() {
+    document.getElementById('cashAppPopupOverlay').style.display = 'none';
+  }
+
+  function confirmBitcoinPayment() {
+    closeBitcoinPopup();
+    enableConfirmPaymentButton();
+  }
+
+  function confirmCashAppPayment() {
+    closeCashAppPopup();
+    enableConfirmPaymentButton();
+  }
+
+  function enableConfirmPaymentButton() {
+    document.getElementById('confirmPaymentButton').disabled = false;
+  }
+</script>
+</body>
+</html>

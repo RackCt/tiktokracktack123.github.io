@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Empire Fakes</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  nav {
+    background-color: #98FF98;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+  }
+  nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  nav a:hover {
+    color: red;
+  }
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+  }
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  textarea {
+    width: 80%;
+    height: 150px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  input[type="email"], input[type="submit"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  #popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #98FF98;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  #popup button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #98FF98;
+    color: black;
+    border: none;
+    cursor: pointer;
+  }
+  .header-logo {
+    display: none; /* Hide the image by default */
+    width: 50px; /* Set the width of the image */
+    position: absolute; /* Position the image in the center */
+    left: 52%; /* Move the image to the center horizontally */
+    top: 0px; /* Move the image up by 6 pixels */
+    transform: translateX(-50%); /* Adjust horizontal position to center */
+  }
+  @media (max-width: 768px) {
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 25px 0; /* Adjust padding to center menu icon vertically */
+    }
+    .menu-icon {
+      display: block;
+      top: 4px; /* Adjust top position to align the icon in the center of the header */
+    }
+    .nav-links {
+      display: none; /* Hide initially */
+      position: absolute;
+      background-color: #98FF98;
+      width: 100%;
+      top: 40px;
+      left: 0;
+      flex-direction: column; /* Stack vertically */
+      padding: 10px 0;
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .header-logo {
+      display: block; /* Show the image for mobile */
+    }
+  }
+  @media (min-width: 769px) {
+    .header-logo {
+      display: none; /* Hide the image for desktop */
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Mobile responsive header from Example IDs page -->
+  <nav>
+    <span class="menu-icon" onclick="toggleNav()">☰</span>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="order.html">Order</a>
+      <a href="exampleid.html">Example IDs</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <img src="https://i2.paste.pics/44db0622472b07faaf6d2d034848e296.png?rand=6HWhNX2ZT5" alt="Logo" class="header-logo">
+  </nav>
+
+  <div class="content">
+    <h1>Contact Us</h1>
+    <textarea placeholder="Your message..."></textarea>
+    <input type="email" placeholder="Your email address">
+    <input type="submit" value="Submit" onclick="showPopup()">
+  </div>
+
+  <div id="popup">
+    <p>We will reply to you via email soon</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+
+<script>
+  function toggleNav() {
+    var links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function showPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+</script>
+</body>
+</html>

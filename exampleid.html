@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example IDs - Empire Fakes</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  nav {
+    background-color: #98FF98;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+  }
+  nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  nav a:hover {
+    color: red;
+  }
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+  }
+  .title {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  .grid-item {
+    background-image: url('https://i2.paste.pics/44db0622472b07faaf6d2d034848e296.png?rand=6HWhNX2ZT5');
+    background-size: cover;
+    height: 200px;
+  }
+  .header-logo {
+    display: none; /* Hide the logo by default */
+    width: 50px; /* Set the width of the logo */
+    position: absolute; /* Position the logo in the center */
+    left: 52%; /* Move the logo to the center horizontally */
+    top: 0px; /* Move the logo up by 6 pixels */
+    transform: translateX(-50%); /* Adjust horizontal position to center */
+  }
+  @media (max-width: 768px) {
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 25px 0; /* Adjust padding to center menu icon vertically */
+    }
+    .menu-icon {
+      display: block;
+      top: 5px; /* Adjust top position to align the icon in the center of the header */
+    }
+    .nav-links {
+      display: none;
+      position: absolute;
+      background-color: #98FF98;
+      width: 100%;
+      top: 40px;
+      left: 0;
+      flex-direction: column;
+      padding: 10px 0;
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .grid-container {
+      grid-template-columns: 1fr; /* Stack images vertically on smaller screens */
+    }
+    .header-logo {
+      display: block; /* Show the logo for mobile */
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Mobile responsive header from Example IDs page -->
+  <nav>
+    <span class="menu-icon" onclick="toggleNav()">☰</span>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="order.html">Order</a>
+      <a href="exampleid.html">Example IDs</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <img src="https://i2.paste.pics/44db0622472b07faaf6d2d034848e296.png?rand=6HWhNX2ZT5" alt="Logo" class="header-logo">
+  </nav>
+
+  <!-- Original content continues here -->
+  <h2 class="title">Examples of our IDs</h2>
+
+  <div class="grid-container">
+    <!-- Repeat placeholders for 12 images -->
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+  </div>
+
+<script>
+  function toggleNav() {
+    var links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+</body>
+</html>

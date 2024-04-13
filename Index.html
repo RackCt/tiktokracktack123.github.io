@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empire Fakes</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  nav {
+    background-color: #98FF98;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+  }
+  nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  nav a:hover {
+    color: red;
+  }
+  .menu-icon {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+  }
+  .nav-links {
+    display: flex; /* Ensure links are visible and laid out horizontally on desktop */
+    justify-content: center;
+    width: 100%;
+  }
+  .main-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 55px;
+  }
+  .title-container {
+    text-align: center;
+    flex-basis: 40%;
+  }
+  .main-title {
+    color: gold;
+    font-size: 60px;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 5px gold;
+  }
+  .order-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #98FF98;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  .order-button:hover {
+    background-color: red;
+    color: white;
+  }
+  .carousel {
+    border: 5px solid black;
+    width: 375px;
+    height: 250px;
+    flex-basis: 40%;
+  }
+  .divider {
+    height: 2px;
+    background-color: black;
+    margin: 50px 0;
+  }
+  .info-section {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 45px 0;
+  }
+  .info-section > div {
+    width: 30%;
+  }
+  .info-section h3 {
+    margin: 0;
+    color: #228B22;
+  }
+  .info-section p {
+    font-size: 14px;
+  }
+  .flags {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 50px 0;
+  }
+  .flag {
+    text-align: center;
+  }
+  .fake-id-title, .flag-subtext {
+    text-align: center;
+    font-size: 32px;
+    margin: 0;
+  }
+  .flag-subtext {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .states-text {
+    text-align: center;
+    display: block;
+  }
+
+   @media (max-width: 768px) {
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 10px; /* Double the header size */
+      padding: 20px 0; /* Adjust padding to center menu icon vertically */
+    }
+    .menu-icon {
+      display: block;
+      top: 4px; /* Adjust top position to align the icon in the center of the header */
+    }
+    .nav-links {
+      display: none; /* Hide initially */
+      position: absolute;
+      background-color: #98FF98;
+      width: 100%;
+      top: 40px;
+      left: 0;
+      flex-direction: column; /* Stack vertically */
+      padding: 10px 0;
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .main-content, .carousel, .title-container {
+      flex-direction: column;
+      width: 100%;
+    }
+    .carousel, .title-container {
+      width: 100%; /* Adjust carousel to match the title width */
+    }
+    .carousel {
+      height: auto; /* Adjust height automatically to maintain aspect ratio */
+    }
+    .header-logo {
+      display: block; /* Show the logo for mobile */
+      width: 50px; /* Set the width of the logo */
+      position: absolute; /* Position the logo in the center */
+      left: 52%; /* Move the logo to the center horizontally */
+      top: 0px; /* Move the logo up by 6 pixels */
+      transform: translateX(-50%); /* Adjust horizontal position to center */
+    }
+  }
+</style>
+
+</head>
+<body>
+  <nav>
+    <span class="menu-icon" onclick="toggleNav()">☰</span>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="order.html">Order</a>
+      <a href="exampleid.html">Example IDs</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <img src="https://i2.paste.pics/44db0622472b07faaf6d2d034848e296.png?rand=6HWhNX2ZT5" alt="Logo" class="header-logo">
+  </nav>
+
+  <div class="main-content">
+    <div class="title-container">
+      <h1 class="main-title">
+        EMPIRE<br>Fakes
+      </h1>
+      <button class="order-button">Order</button>
+    </div>
+    <div class="carousel" id="imageCarousel">
+      <!-- Carousel images will be handled by JavaScript -->
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div>
+      <h3>Shipping</h3>
+      <p>We produce your ID and ship it within one week of you placing your order, with rush shipping available. Get your ID in one of the fastest timeframes on the market.</p>
+    </div>
+    <div>
+      <h3>Quality</h3>
+      <p>Holograms, Normal & Visible UV Blacklight Mark, Magnetic Stripe and Barcode Scannable, Perfect Laser Perforation, High Quality Microprint, Ear Shadows, Great Photoshop.</p>
+    </div>
+    <div>
+      <h3>Service</h3>
+      <p>We pride ourselves for having the fastest customer service response times. If any questions, please feel free to send an email to order@domain.com</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="flags">
+    <div class="flag">
+      <img src="https://www.worldometers.info/img/flags/small/tn_us-flag.gif" alt="US Flag">
+      <p class="flag-subtext states-text">All 50 States<br>(Except Alaska)</p>
+    </div>
+    <div class="flag">
+      <img src="https://www.worldometers.info/img/flags/small/tn_ca-flag.gif" alt="Canada Flag">
+      <p class="flag-subtext">Every Canadian Province</p>
+    </div>
+  </div>
+
+  <footer>
+    <!-- Footer content here -->
+  </footer>
+
+<script>
+  function toggleNav() {
+    var links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'block' ? 'none' : 'block';
+  }
+
+  const images = [
+    "https://www.worldometers.info/img/flags/small/tn_us-flag.gif",
+    "https://www.worldometers.info/img/flags/small/tn_ca-flag.gif"
+  ];
+  let currentImageIndex = 0;
+  const carousel = document.getElementById('imageCarousel');
+
+  function changeImage() {
+    carousel.style.backgroundImage = 'url(' + images[currentImageIndex] + ')';
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+  }
+
+  setInterval(changeImage, 3000);
+  changeImage();
+</script>
+</body>
+</html>
